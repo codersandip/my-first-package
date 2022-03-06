@@ -7,7 +7,10 @@ use Illuminate\Contracts\Mail\Mailable;
 interface UserCreatedMailableNotificationContracts
 {
     public function emailColumnName(): string;
+
     public function userCreatedMailableNotification(): Mailable;
+
     public function userCreatedMailableNotificationQueue(): bool;
-    public function sendUserCreatedMailableNotification() : void;
+
+    public function sendUserCreatedMailableNotification(): void;
 }

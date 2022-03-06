@@ -3,13 +3,13 @@
 namespace Codersandip\MyFirstPackage\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class UserCreated extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -17,6 +17,7 @@ class UserCreated extends Mailable
      * @return void
      */
     protected $user = null;
+
     public function __construct($user)
     {
         $this->user = $user;
