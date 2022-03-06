@@ -2,16 +2,17 @@
 
 namespace Codersandip\MyFirstPackage\Tests\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Codersandip\MyFirstPackage\Contracts\UserCreatedMailableNotificationContracts;
+use Codersandip\MyFirstPackage\Traits\UserCreatedMailableNotificationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Codersandip\MyFirstPackage\Traits\UserCreatedMailableNotificationTrait;
-use Codersandip\MyFirstPackage\Contracts\UserCreatedMailableNotificationContracts;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements UserCreatedMailableNotificationContracts
 {
-    use  HasFactory, Notifiable, UserCreatedMailableNotificationTrait;
+    use  HasFactory;
+    use Notifiable;
+    use UserCreatedMailableNotificationTrait;
 
     /**
      * The attributes that are mass assignable.

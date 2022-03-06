@@ -2,9 +2,9 @@
 
 namespace Codersandip\MyFirstPackage\Tests;
 
+use Codersandip\MyFirstPackage\MyFirstPackageServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Codersandip\MyFirstPackage\MyFirstPackageServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -28,9 +28,8 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        
+
         $migration = include __DIR__.'/../database/migrations/create_my-first-package_table.php.stub';
         $migration->up();
-       
     }
 }

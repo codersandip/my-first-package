@@ -1,17 +1,18 @@
 <?php
 
 namespace Codersandip\MyFirstPackage\Traits;
+
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Contracts\Mail\Mailable;
 use Codersandip\MyFirstPackage\Observers\UserRegisteredObserver;
+use Illuminate\Contracts\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 
 /**
- * 
+ *
  */
 trait UserCreatedMailableNotificationTrait
 {
-    static public function booted()
+    public static function booted()
     {
         User::observe(UserRegisteredObserver::class);
     }
@@ -31,12 +32,13 @@ trait UserCreatedMailableNotificationTrait
         return true;
     }
 
-    public function sendUserCreatedMailableNotification() : void
+    public function sendUserCreatedMailableNotification(): void
     {
         # code...
         $mail = Mail::to($this->email);
         if ($this->userCreatedMailableNotificationQueue()) {
             $mail->queue($this->userCreatedMailableNotification($this));
+
             return;
         }
         $mail->send($this->userCreatedMailableNotification($this));

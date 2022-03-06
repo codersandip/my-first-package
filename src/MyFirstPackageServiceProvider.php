@@ -4,7 +4,6 @@ namespace Codersandip\MyFirstPackage;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Codersandip\MyFirstPackage\Commands\MyFirstPackageCommand;
 
 class MyFirstPackageServiceProvider extends PackageServiceProvider
 {
